@@ -8,6 +8,13 @@ Created on Sun Mar  3 22:46:17 2019
 #step 1 goes here
 import cv2
 import dlib
+import glob
+import random
+import math
+import numpy as np
+import itertools
+from sklearn.svm import SVC
+emotions = ["anger", "contempt", "disgust", "fear", "happiness", "neutral", "sadness", "surprise"]
 cap=cv2.VideoCapture(0)
 det=dlib.get_frontal_face_detector() #face detetion purposes
 pred=dlib.shape_predictor("shape_predictor_68_face_landmarks.dat") #landmark plotter
@@ -22,6 +29,6 @@ while(1):
         shape=pred(clahe_image,d)
         for i in range(1,68):
             cv2.circle(frame, (shape.part(i).x, shape.part(i).y), 1, (0,0,255), thickness=2) #For each point, draw a red circle with thickness2 on the original frame
-    cv2.imshow("image", frame) #Display the frame
-    if cv2.waitKey(1) & 0xFF == ord('q'): #Exit program when the user presses 'q'
+    cv2.imshow("image", frame) 
+    if cv2.waitKey(1) & 0xFF == ord('q'):
         break

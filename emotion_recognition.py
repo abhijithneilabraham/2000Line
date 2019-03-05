@@ -22,8 +22,7 @@ while(1):
     cap.grab()
     ret,frame=cap.retrieve()
     gray=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
-    clahe=cv2.createCLAHE(clipLimit=2.0,tileGridSize=(8,8)) #using histogram equalisation using clahe
-    clahe_image=clahe.apply(gray)
+    clahe=cv2.createCLAHE(clipLimit=2.0,tileGridSize=(8,8)) #using histogram equalisation using cla    clahe_image=clahe.apply(gray)
     found=det(clahe_image,1)
     for d in found:
         shape=pred(clahe_image,d)

@@ -21,8 +21,9 @@ pred=dlib.shape_predictor("shape_predictor_68_face_landmarks.dat") #landmark plo
 while(1): 
     cap.grab()
     ret,frame=cap.retrieve()
-    gray=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
-    clahe=cv2.createCLAHE(clipLimit=2.0,tileGridSize=(8,8)) #using histogram equalisation using cla    clahe_image=clahe.apply(gray)
+    gray=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY) #converting to greyscale for operations in 8 bit instead of 24 bit
+    clahe=cv2.createCLAHE(clipLimit=2.0,tileGridSize=(8,8)) #using histogram equalisation using clahe
+    clahe_image=clahe.apply(gray) #applying clahe for histogram equalisation
     found=det(clahe_image,1)
     for d in found:
         shape=pred(clahe_image,d)

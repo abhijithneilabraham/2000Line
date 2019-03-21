@@ -45,7 +45,7 @@ while True:
 
         name = None
         if match[0]:
-            name = "Phani Srikant"
+            name = "Abhijith Neil Abraham"
 
         face_names.append(name)
 
@@ -64,7 +64,8 @@ while True:
 
     # Write the resulting image to the output video file
     print("Writing frame {} / {}".format(frame_number, length))
-    input_movie.write(frame)
+    input_movie.imwrite(frame)
+    input_movie.imshow(frame)
 
 # All done!
 input_movie.release()

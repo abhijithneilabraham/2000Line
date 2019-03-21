@@ -20,12 +20,10 @@ face_encoding,
 face_locations = []
 face_encodings = []
 face_names = []
-frame_number = 0
-
 while True:
     # Grab a single frame of video
     ret, frame = input_movie.read()
-    frame_number += 1
+    
 
     # Quit when the input video file ends
     if not ret:
@@ -58,12 +56,13 @@ while True:
         cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
 
         # Draw a label with a name below the face
-        cv2.rectangle(frame, (left, bottom - 25), (right, bottom), (0, 0, 255), cv2.FILLED)
-        font = cv2.FONT_HERSHEY_DUPLEX
-        cv2.putText(frame, name, (left + 6, bottom - 6), font, 0.5, (255, 255, 255), 1)
+        
+        
+        
+        
 
     # Write the resulting image to the output video file
-    cv2.imshow('frame',frame)
+    cv2.imshow('fra',frame)
 
 # All done!
 input_movie.release()

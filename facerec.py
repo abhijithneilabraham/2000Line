@@ -22,12 +22,12 @@ face_encodings = []
 face_names = []
 while True:
     # Grab a single frame of video
-    ret, frame = input_movie.read()
+    input_movie.grab()
+    ret, frame = input_movie.retrieve()
     
 
     # Quit when the input video file ends
-    if not ret:
-        break
+   
 
     # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
     rgb_frame = frame[:, :, ::-1]
@@ -54,6 +54,8 @@ while True:
 
         # Draw a box around the face
         cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
+        font = cv2.FONT_HERSHEY_DUPLEX
+        cv2.putText(frame, name, (left + 6, bottom - 6), font, 0.5, (255, 255, 255), 1)
 
         # Draw a label with a name below the face
         
@@ -63,6 +65,9 @@ while True:
 
     # Write the resulting image to the output video file
     cv2.imshow('fra',frame)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
 
 # All done!
 input_movie.release()

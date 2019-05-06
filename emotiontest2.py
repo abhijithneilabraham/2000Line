@@ -10,10 +10,12 @@ Created on Sat Mar 23 10:56:52 2019
 from keras.preprocessing import image
 import numpy as np
 import cv2
+import time
+
 
 from keras.models import load_model
 import matplotlib.pyplot as plt
-model=load_model('test2.h5')
+model=load_model('test1.h5')
 
 
 
@@ -51,9 +53,11 @@ while(1):
     em=[l for l, k in enumerate(custom[0]) if k == maxim]
     objects = ('angry', 'disgust', 'fear', 'happy', 'sad', 'surprise', 'neutral')
     print(objects[em[0]])
+    
 
     
     cv2.imshow('fra',frame)
+    time.sleep(3)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 cap.release()

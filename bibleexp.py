@@ -17,7 +17,7 @@ from pattern.web import URL, PDF
 
 # creating a pdf file object
  
-pdf2=PDF('newtestament.pdf')
+pdf2=PDF('bible.pdf')
 text2=pdf2.string
 
 #print(summarize(text2))
@@ -32,7 +32,7 @@ text2=pdf2.string
 '''
 the word_count paramter limits the max number of words used in the summary
 '''
-print(summarize(text2,word_count=100))
+print(summarize(text2,word_count=200))
 
 '''
 TextBlob is a Python (2 and 3) library for processing textual data. 

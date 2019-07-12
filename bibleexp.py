@@ -14,10 +14,10 @@ from nltk import tokenize
 import numpy as np
 from textblob import TextBlob 
 from pattern.web import URL, PDF
-  
+
 # creating a pdf file object
  
-pdf2=PDF('bible.pdf')
+pdf2=PDF('newtestament.pdf')
 text2=pdf2.string
 
 #print(summarize(text2))
